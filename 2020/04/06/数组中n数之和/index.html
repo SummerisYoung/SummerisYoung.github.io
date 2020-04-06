@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="JavaScript,Leecode,算法," />
+
+
+
+
+
+
+
+
+
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="数组中n数之和">
+<meta property="og:url" content="http://yoursite.com/2020/04/06/%E6%95%B0%E7%BB%84%E4%B8%ADn%E6%95%B0%E4%B9%8B%E5%92%8C/index.html">
+<meta property="og:site_name" content="mzx">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/22493933-3a56fcc215fbf169.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/22493933-c68f376e64944229.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/22493933-aaf775eb1886490f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/22493933-a22c74814440b185.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="article:published_time" content="2020-04-06T07:17:50.000Z">
+<meta property="article:modified_time" content="2020-04-06T07:18:27.441Z">
+<meta property="article:author" content="mzx">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="Leecode">
+<meta property="article:tag" content="算法">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/22493933-3a56fcc215fbf169.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/04/06/数组中n数之和/"/>
+
+
+
+
+
+  <title>数组中n数之和 | mzx</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    
+    <a href="https://github.com/SummerisYoung" target="_blank" rel="noopener" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">mzx</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">呵呵呵</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/06/%E6%95%B0%E7%BB%84%E4%B8%ADn%E6%95%B0%E4%B9%8B%E5%92%8C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="mzx">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="mzx">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">数组中n数之和</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-06T15:17:50+08:00">
+                2020-04-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Leecode/" itemprop="url" rel="index">
+                    <span itemprop="name">Leecode</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 阅读数
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.4k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  6分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p><img src="https://upload-images.jianshu.io/upload_images/22493933-3a56fcc215fbf169.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+</blockquote>
+<a id="more"></a>
+<p>这是leecode上经典的三数和问题。<br>为了找出求数组中n数和的方法，首先从基础的二数和开始看。</p>
+<blockquote>
+<p>leecode二数和问题：<br><img src="https://upload-images.jianshu.io/upload_images/22493933-c68f376e64944229.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+</blockquote>
+<p>高效的方法是使用哈希表。<br>先看一下哈希表是什么。</p>
+<blockquote>
+<p>百度百科<a href="https://baike.baidu.com/item/%E5%93%88%E5%B8%8C%E8%A1%A8/5981869?fr=aladdin" target="_blank" rel="noopener">哈希表</a><br>哈希表，是根据关键码值(Key value)而直接进行访问的数据结构,也就是说，它通过把关键码值映射到表中一个位置来访问记录，以加快查找的速度。<br>数据元素的存放位置和数据元素的关键字之间建立起某种对应关系，建立这种对应关系的函数称为哈希函数.<br><img src="https://upload-images.jianshu.io/upload_images/22493933-aaf775eb1886490f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+</blockquote>
+<p>在看二数和问题，使用哈希表其实就是一个建立登记册，写上你的名字和你的要求。如果每个人都提前在登记表那里登记一遍，然后只要大家依次再报出自己名字，我们就可以通过登记表，找到谁是你要找的人。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> twoSum = <span class="function"><span class="keyword">function</span>(<span class="params">nums, target</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> res = []</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123; <span class="comment">// 每个人登记自己想要配对的人到登记表</span></span><br><span class="line">      res[target - nums[i]] = nums[i]</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; nums.length; j++) &#123; <span class="comment">// 每个人再次报数的时候，看一下登记表里有没有这个人</span></span><br><span class="line">      <span class="keyword">if</span> (res[nums[j]] !== <span class="literal">undefined</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> [nums[j], res[nums[j]]]</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>举个栗子，nums = [2,7,11,15],target = 9。那么登记完哈希表后，哈希表中的结果为res = [empty × 2, 7, empty × 4, 2, -2: 11, -6: 15]——Chrome浏览器console。<br>再次报数时，会依次查看res[2]，res[7]，res[11]，res[15]中是否有值，有值的话，这个值就是每个j要找的数，所以nums[j]和res[nums[j]]就可以组成一个结果了。</p>
+<p>如果想要返回结果在数组中的下标，可以将res[target - nums[i]]改为res.push(target - nums[i])，这样res中的下标就对应于结果中的第二个数了</p>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var twoSum = <span class="keyword">function</span>(nums, target) &#123;</span><br><span class="line">    <span class="keyword">let</span> res = <span class="literal">[]</span></span><br><span class="line">    for (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123; <span class="comment">// 每个人登记自己想要配对的人到登记表</span></span><br><span class="line">      res.push(target - nums<span class="literal">[<span class="identifier">i</span>]</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    for (<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; nums.length; j++) &#123; <span class="comment">// 每个人再次报数的时候，看一下登记表里有没有这个人</span></span><br><span class="line">      <span class="keyword">if</span>(res.index<span class="constructor">Of(<span class="params">nums</span>[<span class="params">j</span>])</span> !=-<span class="number">1</span> &amp;&amp;res.index<span class="constructor">Of(<span class="params">nums</span>[<span class="params">j</span>])</span>!=j)&#123;</span><br><span class="line">          <span class="comment">//判断表里有没有对应的人且表里的下标和自己的下标不能重复</span></span><br><span class="line">           return <span class="literal">[<span class="identifier">j</span>,<span class="identifier">res</span>.<span class="identifier">indexOf</span>(<span class="identifier">nums</span>[<span class="identifier">j</span>]</span>)];</span><br><span class="line">       &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>现在来看三数和为0的问题，受到二数和问题的启发，在凑齐两人以后，他们可以登记需求的第三人，而不需要在茫茫人海中去找人。这样，我们就把问题优化成了每个人都要找其他每个人。也就是说，先固定好一个人，他再去找另外两个人。这就是通用方案。</p>
+<p>下面我们进行一下优化，首先<strong>安排所有人按照顺序排队站好</strong>，用sort执行快排。然后我们<strong>从第一个人开始固定</strong>，先选择队伍最左边（最小值）和队伍最右边（最大值）两个人，加上固定的人，算一下总和。如果大于 0，就把就把右侧的人选调左一位，反之，则调整左边的人选，这里的核心是<strong>以双指针从最大最小两端相向而行</strong>，直到相遇，或者即将筛选出来三个符号相同的结果，即停止。然后第一个人的情况考虑完了，再考虑固定后面的人的情况。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> threeSum = function(nums) &#123;</span><br><span class="line">    nums.<span class="built_in">sort</span>((a,b)=&gt;a-b)<span class="comment">//先排个队，最左边是最小的，最右边是最大的</span></span><br><span class="line">    <span class="keyword">let</span> res = []</span><br><span class="line">    <span class="keyword">if</span>(nums[<span class="number">0</span>] &lt;= <span class="number">0</span> &amp;&amp; nums[nums.length - <span class="number">1</span>] &gt;= <span class="number">0</span>)&#123;<span class="comment">//整个数组不可以同符号</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>;i &lt; nums.length - <span class="number">2</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(i &gt; <span class="number">0</span> &amp;&amp; nums[i] == nums[i - <span class="number">1</span>]) <span class="keyword">continue</span>;<span class="comment">//固定的数重复了，跳过</span></span><br><span class="line">            <span class="keyword">if</span>(nums[i] &gt; <span class="number">0</span>) <span class="keyword">break</span>;<span class="comment">//最左值不能为正数</span></span><br><span class="line">            <span class="keyword">let</span> <span class="keyword">left</span> = i + <span class="number">1</span>;<span class="comment">//左指针</span></span><br><span class="line">            <span class="keyword">let</span> <span class="keyword">right</span> = nums.length - <span class="number">1</span>;<span class="comment">//右指针</span></span><br><span class="line">            <span class="keyword">do</span>&#123;</span><br><span class="line">                <span class="comment">//两指针相遇，或者三数同符号，则退出</span></span><br><span class="line">                <span class="keyword">if</span>(<span class="keyword">left</span> &gt;= <span class="keyword">right</span> || nums[i] * nums[<span class="keyword">right</span>] &gt; <span class="number">0</span>) <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">let</span> sum = nums[i] + nums[<span class="keyword">left</span>] + nums[<span class="keyword">right</span>];</span><br><span class="line">                <span class="keyword">if</span>(sum == <span class="number">0</span>) res.push([nums[i],nums[<span class="keyword">left</span>],nums[<span class="keyword">right</span>]]);</span><br><span class="line">                <span class="keyword">if</span>(sum &lt;= <span class="number">0</span>)&#123; <span class="comment">// 太小了，把左指针那边右移一位</span></span><br><span class="line">                    <span class="keyword">while</span>(<span class="keyword">left</span> &lt; <span class="keyword">right</span> &amp;&amp; nums[<span class="keyword">left</span>] == nums[++<span class="keyword">left</span>])&#123;&#125;<span class="comment">//左指针的数重复了，跳过</span></span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;<span class="comment">// 太大了，把右指针那边左移一位</span></span><br><span class="line">                    <span class="keyword">while</span>(<span class="keyword">left</span> &lt; <span class="keyword">right</span> &amp;&amp; nums[<span class="keyword">right</span>] == nums[--<span class="keyword">right</span>])&#123;&#125;<span class="comment">//右指针的数重复了，跳过</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;<span class="keyword">while</span>(<span class="keyword">left</span> &lt; <span class="keyword">right</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>四数和问题<br><img src="https://upload-images.jianshu.io/upload_images/22493933-a22c74814440b185.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+</blockquote>
+<p>三数和是固定第一个数，另外两个数用左右指针，四数和就是固定两个数用双循环，另外两个数同样用移动的双指针寻找，更新比较与 target 的大小<br>解法转自leecode<a href="https://leetcode-cn.com/problems/4sum/solution/18-si-shu-zhi-he-by-alexer-660/" target="_blank" rel="noopener">四数之和</a></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">var fourSum = <span class="function"><span class="keyword">function</span><span class="params">(nums, target)</span> &#123;</span></span><br><span class="line">    let res = [];</span><br><span class="line">    nums.<span class="built_in">sort</span>((a,b) =&gt; a - b);</span><br><span class="line">    let n = nums.<span class="built_in">length</span>;</span><br><span class="line">    <span class="keyword">for</span>(let <span class="built_in">i</span> = <span class="number">0</span>;<span class="built_in">i</span> &lt; n - <span class="number">3</span>;<span class="built_in">i</span>++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">i</span> &gt; <span class="number">0</span> &amp;&amp; nums[<span class="built_in">i</span>] === nums[<span class="built_in">i</span><span class="number">-1</span>]) <span class="keyword">continue</span>;</span><br><span class="line">        <span class="keyword">if</span>(nums[<span class="built_in">i</span>] + nums[<span class="built_in">i</span>+<span class="number">1</span>] + nums[<span class="built_in">i</span>+<span class="number">2</span>] + nums[<span class="built_in">i</span>+<span class="number">3</span>] &gt; target) <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">if</span>(nums[<span class="built_in">i</span>] + nums[n<span class="number">-1</span>] + nums[n<span class="number">-2</span>] + nums[n<span class="number">-3</span>] &lt; target) <span class="keyword">continue</span>;</span><br><span class="line">        <span class="keyword">for</span>(let <span class="built_in">j</span> = <span class="built_in">i</span> + <span class="number">1</span>;<span class="built_in">j</span> &lt; n - <span class="number">2</span>;<span class="built_in">j</span>++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">j</span> - <span class="built_in">i</span> &gt; <span class="number">1</span> &amp;&amp; nums[<span class="built_in">j</span>] === nums[<span class="built_in">j</span><span class="number">-1</span>]) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">if</span>(nums[<span class="built_in">i</span>] + nums[<span class="built_in">j</span>] + nums[<span class="built_in">j</span>+<span class="number">1</span>] + nums[<span class="built_in">j</span>+<span class="number">2</span>] &gt; target) <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">if</span>(nums[<span class="built_in">i</span>] + nums[<span class="built_in">j</span>] + nums[n<span class="number">-1</span>] + nums[n<span class="number">-2</span>] &lt; target) <span class="keyword">continue</span>;</span><br><span class="line">            let left = <span class="built_in">j</span> + <span class="number">1</span>;</span><br><span class="line">            let right = n - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">while</span>(left &lt; right)&#123;</span><br><span class="line">                let tmpRes = nums[<span class="built_in">i</span>] + nums[<span class="built_in">j</span>] + nums[left] + nums[right];</span><br><span class="line">                <span class="keyword">if</span>(tmpRes === target)&#123;</span><br><span class="line">                    res.push([nums[<span class="built_in">i</span>],nums[<span class="built_in">j</span>],nums[left],nums[right]]);</span><br><span class="line">                    <span class="keyword">while</span>(left &lt; right &amp;&amp; nums[left] === nums[left + <span class="number">1</span>]) left++;</span><br><span class="line">                    <span class="keyword">while</span>(left &lt; right &amp;&amp; nums[right] === nums[right - <span class="number">1</span>]) right--;</span><br><span class="line">                    left++;</span><br><span class="line">                    right--;</span><br><span class="line">                &#125;<span class="keyword">else</span> <span class="keyword">if</span>(tmpRes &gt; target)&#123;</span><br><span class="line">                    right--;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    left++;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+            <a href="/tags/Leecode/" rel="tag"># Leecode</a>
+          
+            <a href="/tags/%E7%AE%97%E6%B3%95/" rel="tag"># 算法</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/04/06/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E5%AE%9E%E7%8E%B0%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E7%AE%97%E6%B3%95/" rel="next" title="动态规划实现斐波那契算法">
+                <i class="fa fa-chevron-left"></i> 动态规划实现斐波那契算法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/04/06/hello-world%20copy/" rel="prev" title="Hello World">
+                Hello World <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="mzx" />
+            
+              <p class="site-author-name" itemprop="name">mzx</p>
+              <p class="site-description motion-element" itemprop="description">哈哈哈</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/yourname" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:yourname@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://plus.google.com/yourname" target="_blank" title="Google">
+                      
+                        <i class="fa fa-fw fa-google"></i>Google</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+
+          <div>
+            <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=280 height=86 src="//music.163.com/outchain/player?type=2&id=1429641275&auto=0&height=66"></iframe>
+          </div>
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">mzx</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点字数合计&#58;</span>
+    
+    <span title="站点字数合计">5.8k</span>
+  
+</div>
+
+<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("04/06/2020 00:00:00");//此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "已运行 "+dnum+" 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+    setInterval("createtime()",250);
+</script>
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访客数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
